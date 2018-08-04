@@ -3,8 +3,8 @@
 ## 背景介绍
 
 示例代码取自 ThoughtWorks 内部报销系统，
-1. 系统报销根据所得 Project 的类型与名称判定产生何种类型的 Expense
-2. 在报销过程中，可能存在数据丢失或伪造的情况，所以需要判定 Project 类型是不是无效的
+1. 系统报销根据所得 ExpenseService.Project 的类型与名称判定产生何种类型的 ExpenseService.Expense
+2. 在报销过程中，可能存在数据丢失或伪造的情况，所以需要判定 ExpenseService.Project 类型是不是无效的
 
 ###### *注：项目截取改编自 Salesforce/APEX*
 

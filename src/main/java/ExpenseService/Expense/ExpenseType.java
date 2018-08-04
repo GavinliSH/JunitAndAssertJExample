@@ -1,4 +1,4 @@
-package Expense;
+package ExpenseService.Expense;
 
 public enum ExpenseType {
     INTERNAL_PROJECT_EXPENSE,

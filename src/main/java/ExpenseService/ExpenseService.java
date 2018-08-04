@@ -1,9 +1,11 @@
-import Expense.ExpenseType;
-import Project.*;
-import Exception.*;
+package ExpenseService;
 
-import static Expense.ExpenseType.*;
-import static Project.ProjectType.*;
+import ExpenseService.Expense.ExpenseType;
+import ExpenseService.Project.*;
+import ExpenseService.Exception.*;
+
+import static ExpenseService.Expense.ExpenseType.*;
+import static ExpenseService.Project.ProjectType.*;
 
 class ExpenseService {
     static ExpenseType getExpenseCodeByProjectTypeAndName(Project project) throws UnexpectedProjectTypeException {
@@ -11,11 +13,11 @@ class ExpenseService {
             return INTERNAL_PROJECT_EXPENSE;
         }else{
             if(project.getProjectType() == EXTERNAL){
-                if(project.getProjectName().equals("Project A")){
+                if(project.getProjectName().equals("ExpenseService.Project A")){
                     return EXPENSE_TYPE_A;
                 }
 
-                if(project.getProjectName().equals("Project B")){
+                if(project.getProjectName().equals("ExpenseService.Project B")){
                     return EXPENSE_TYPE_B;
                 }
 

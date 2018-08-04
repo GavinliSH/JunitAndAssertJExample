@@ -1,4 +1,4 @@
-package Project;
+package ExpenseService.Project;
 
 public class Project {
     
