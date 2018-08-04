@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ExpenseServiceTest {
+class ExpenseServiceTest {
     @Test
     void should_return_internal_expense_type_if_project_is_internal() throws UnexpectedProjectTypeException {
         Project project = new Project(ProjectType.INTERNAL, "Internal Project");
@@ -31,5 +31,13 @@ public class ExpenseServiceTest {
         ExpenseType expenseType = ExpenseService.getExpenseCodeByProjectTypeAndName(projectB);
 
         assertThat(expenseType).isEqualTo(ExpenseType.EXPENSE_TYPE_B);
+    }
+
+    @Test
+    void should_return_other_expense_type_if_project_is_external_and_has_other_name() throws UnexpectedProjectTypeException {
+        Project otherProject = new Project(ProjectType.EXTERNAL, "Other Project");
+        ExpenseType expenseType = ExpenseService.getExpenseCodeByProjectTypeAndName(otherProject);
+
+        assertThat(expenseType).isEqualTo(ExpenseType.OTHER_EXPENSE);
     }
 }
