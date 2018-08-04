@@ -13,11 +13,11 @@ class ExpenseService {
             return INTERNAL_PROJECT_EXPENSE;
         }else{
             if(project.getProjectType() == EXTERNAL){
-                if(project.getProjectName().equals("ExpenseService.Project A")){
+                if(project.getProjectName().equals("Project A")){
                     return EXPENSE_TYPE_A;
                 }
 
-                if(project.getProjectName().equals("ExpenseService.Project B")){
+                if(project.getProjectName().equals("Project B")){
                     return EXPENSE_TYPE_B;
                 }
 
