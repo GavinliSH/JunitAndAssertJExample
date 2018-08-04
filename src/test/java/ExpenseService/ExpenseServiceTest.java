@@ -7,6 +7,7 @@ import ExpenseService.Project.ProjectType;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 class ExpenseServiceTest {
     @Test
@@ -39,5 +40,15 @@ class ExpenseServiceTest {
         ExpenseType expenseType = ExpenseService.getExpenseCodeByProjectTypeAndName(otherProject);
 
         assertThat(expenseType).isEqualTo(ExpenseType.OTHER_EXPENSE);
+    }
+
+    @Test
+    void should_throw_unexpected_project_exception_if_project_is_invalid() {
+        Project invalidProject = new Project(ProjectType.UNEXPECTED_PROJECT_TYPE, "Invalid Project");
+        Throwable thrown = catchThrowable(() -> ExpenseService.getExpenseCodeByProjectTypeAndName(invalidProject));
+
+        assertThat(thrown)
+                .isInstanceOf(UnexpectedProjectTypeException.class)
+                .hasMessage("You enter invalid project type");
     }
 }
